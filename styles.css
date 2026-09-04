@@ -574,6 +574,13 @@ body.is-final .quote-form select {
   border-color: var(--gold-light);
 }
 
+.quote-form input:focus-visible,
+.quote-form select:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--ink);
+}
+
 .quote-form button {
   grid-column: 1 / -1;
   min-height: 58px;
@@ -1014,6 +1021,74 @@ body.is-final .quote-form select {
     padding-bottom: max(76px, calc(64px + env(safe-area-inset-bottom)));
   }
 
+}
+
+/* A one-pixel dark halo keeps text distinct from every moving film frame. */
+.beat__copy h1,
+.beat__copy h2,
+.beat__copy p,
+.quote-intro h2,
+.quote-intro p,
+.quote-form label > span,
+.quote-form input,
+.quote-form select,
+.form-status,
+.trust-and-contact p,
+.trust-and-contact a,
+.portfolio-project__copy {
+  -webkit-text-stroke: 2px var(--ink);
+  paint-order: stroke fill;
+}
+
+.beat__copy > p,
+.quote-intro > p,
+.trust-and-contact p,
+.portfolio-project__copy span {
+  color: #ebe8e2;
+}
+
+.quote-form label > span {
+  color: var(--paper);
+}
+
+/* Keep all content reachable when zoom or landscape leaves little height. */
+@media (max-height: 600px) {
+  .beat:not(.beat--quote) {
+    min-height: 100svh;
+    padding-top: calc(var(--header-height) + 32px);
+    padding-bottom: 84px;
+  }
+
+  .beat__copy,
+  .beat--apart .beat__copy,
+  .beat--edge .beat__copy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transform: none !important;
+    animation: none !important;
+    transition: none;
+  }
+
+  .quote-intro {
+    position: static;
+  }
+
+  .portfolio {
+    height: auto;
+    overflow: visible;
+  }
+
+  .portfolio-heading {
+    height: auto;
+    min-height: var(--portfolio-heading-height);
+  }
+
+  .portfolio-wall {
+    min-height: 400px;
+  }
 }
 
 html[data-motion="reduced"],

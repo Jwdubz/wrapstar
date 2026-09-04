@@ -3,13 +3,13 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 14916,
-      "sha256": "ed15fab1178dd7bf73c63563d34702197dcd2b78b6c1390ada29db37ea73f625"
+      "bytes": 14939,
+      "sha256": "c1df603cdf9feeb1534717abcd7677bae64a522ad8fde51ce1ac8ae174c79235"
     },
     {
       "path": "styles.css",
-      "bytes": 19178,
-      "sha256": "be819baf30b8c27fbffc8b481406d224048e16a95e6196bab5f51f1c74e7806d"
+      "bytes": 20642,
+      "sha256": "905c210b12b420436700eeb6678a7e5b5934d16d91e8ced8645b51d2ce020436"
     },
     {
       "path": "script.js",
