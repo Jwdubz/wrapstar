@@ -1,0 +1,155 @@
+{
+  "mediaRelease": "media-20260904",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 14916,
+      "sha256": "ed15fab1178dd7bf73c63563d34702197dcd2b78b6c1390ada29db37ea73f625"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 19178,
+      "sha256": "be819baf30b8c27fbffc8b481406d224048e16a95e6196bab5f51f1c74e7806d"
+    },
+    {
+      "path": "script.js",
+      "bytes": 8796,
+      "sha256": "82631131e1c1df5a9944d57ee49a813a3c52026c4ebb3075f99e971aac6ca634"
+    },
+    {
+      "path": "CNAME",
+      "bytes": 27,
+      "sha256": "019cef470acd5007cad236947b7fc2d219ee67ec1253b25c520f9607c4214e0e"
+    },
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "assets/brand/ceramic-pro-las-vegas.png",
+      "bytes": 10081,
+      "sha256": "11baa9bf4c0f25588b22ed6ea45feddb805e014c4a023be776c0d3ed1db717b0"
+    },
+    {
+      "path": "assets/brand/wrapstar-logo.png",
+      "bytes": 83539,
+      "sha256": "62d584d413ed40e84fd2ad27e52369b7d15ca3f283a60626223dfda3b5164006"
+    },
+    {
+      "path": "assets/fonts/plus-jakarta-sans-latin.woff2",
+      "bytes": 27348,
+      "sha256": "153fc85b70298beeb1d61a5f723331649e7f23bb77302a66e61cb3e2fbdb5e79"
+    },
+    {
+      "path": "assets/portfolio/ferrari-812.png",
+      "bytes": 4576832,
+      "sha256": "1ad02e3690c4fc276c818d71d1aeec8b1b28802b99343209e21f03052588cbcb"
+    },
+    {
+      "path": "assets/portfolio/g-wagon.png",
+      "bytes": 426545,
+      "sha256": "7d0e37fd5e25b7e4f28c5ea18228d69f0d7744927d200c1af06ae2c9b9138eaf"
+    },
+    {
+      "path": "assets/portfolio/jesko.png",
+      "bytes": 989091,
+      "sha256": "ad8cb4c17b0c7a178b928dc7e5c2bffd01109669af8fbbcf7411ad1f47f44cd7"
+    },
+    {
+      "path": "assets/portfolio/porsche-911.png",
+      "bytes": 534351,
+      "sha256": "d705b09b0ff6d3f0952d084c4fab1f11a7916de42a5debb1fe3a4d1827376df7"
+    },
+    {
+      "path": "assets/portfolio/sls-black-series.png",
+      "bytes": 499859,
+      "sha256": "3697a8b2fd6b66d9b43089c1f89d4aa43d1e2c5b979bb8ede92e21aa03a95d46"
+    },
+    {
+      "path": "assets/posters/apart-loop-wide.png",
+      "bytes": 5086575,
+      "sha256": "846eff2939e597aade610940aef142533c8ff8b5de7ae942859d33f6b941f4b5"
+    },
+    {
+      "path": "assets/posters/apart-loop-tall.png",
+      "bytes": 1294861,
+      "sha256": "9ce2277f016c97e11cbef31bef7c43b27791b4636959b6cef66bffe7db95af4f"
+    },
+    {
+      "path": "assets/video/apart-loop-wide.mp4",
+      "bytes": 97147705,
+      "sha256": "29819c0ec49df04564ed781fbd37b4dba17e0a5953f75fff55ee0e4b2a83b685"
+    },
+    {
+      "path": "assets/video/apart-loop-tall.mp4",
+      "bytes": 30432620,
+      "sha256": "48b58a2d93d4e303b28daefe70eca88a1ea7ad19698bbe782bda7686d5b8ae83"
+    },
+    {
+      "path": "assets/posters/closer-loop-wide.png",
+      "bytes": 5218352,
+      "sha256": "9f760de4b495f9664af96e7b4e10510fe1468b6a54ae4733b623bb22d9a0bd0d"
+    },
+    {
+      "path": "assets/posters/closer-loop-tall.png",
+      "bytes": 1448162,
+      "sha256": "78d07c256afe7b6d2f14281c6b93d12f2a8fe322dad251ccbd0d081871382426"
+    },
+    {
+      "path": "assets/video/closer-loop-wide.mp4",
+      "bytes": 149881086,
+      "sha256": "2136a709dbe0a34320677b2f5cd160b4c95e6e529b8c09dbb73ea4137a1fc408"
+    },
+    {
+      "path": "assets/video/closer-loop-tall.mp4",
+      "bytes": 52971287,
+      "sha256": "f75c1fe481e280d7e5462807d6bc8721d243b8da4ee140035d27447cae6c0ae0"
+    },
+    {
+      "path": "assets/posters/edge-loop-wide.png",
+      "bytes": 3872384,
+      "sha256": "ee0f22176d88f25c1de8c0c82cf17338f2dadd96fdaa8acdb1ec3507d6ededce"
+    },
+    {
+      "path": "assets/posters/edge-loop-tall.png",
+      "bytes": 954118,
+      "sha256": "2f7987cc251b92303955f94677d9fb8fef1b294e153953448acf86ad8d7fb90a"
+    },
+    {
+      "path": "assets/video/edge-loop-wide.mp4",
+      "bytes": 149828214,
+      "sha256": "949d7a19b70f988177f1cc620eaa2a0d0f0a2fab0f254b9300f1cec98003a331"
+    },
+    {
+      "path": "assets/video/edge-loop-tall.mp4",
+      "bytes": 52578774,
+      "sha256": "d4c46516ab3ab6c4e6ca715ff3edecc9fa7e561738f57ecc57f4013ffdccb936"
+    },
+    {
+      "path": "assets/posters/finish-loop-wide.png",
+      "bytes": 8711802,
+      "sha256": "e1633595028688de35ee672699268052cc43e41b337e010c23cd65423712ae39"
+    },
+    {
+      "path": "assets/posters/finish-loop-tall.png",
+      "bytes": 2781078,
+      "sha256": "59d5fc67a39379d9e8034ed1286fe5e656f9f0520ed975792fa5784657f1de89"
+    },
+    {
+      "path": "assets/video/finish-loop-wide.mp4",
+      "bytes": 154870875,
+      "sha256": "35aa26ff0ebe8640e66676002166e22143989e4eaac3b848aee06e9e700ab260"
+    },
+    {
+      "path": "assets/video/finish-loop-tall.mp4",
+      "bytes": 43535815,
+      "sha256": "ed8db1d3a8544cc0b64ab0fac77356e92f29a13780f565d1541aa1aeb74b4261"
+    }
+  ]
+}

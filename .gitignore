@@ -1,0 +1,25 @@
+# Publish only the explicit runtime allowlist. Local evidence and originals stay local.
+/*
+!/.gitignore
+!/.gitattributes
+!/index.html
+!/styles.css
+!/script.js
+!/CNAME
+!/.nojekyll
+!/robots.txt
+!/publish-manifest.json
+!/.github/
+!/scripts/
+!/assets/
+/assets/*
+!/assets/brand/
+!/assets/fonts/
+!/assets/portfolio/
+!/assets/posters/
+/assets/posters/*
+!/assets/posters/*-loop-wide.png
+!/assets/posters/*-loop-tall.png
+# Videos are exact, hash-verified GitHub release assets, assembled by Actions.
+/assets/video/
+/_site/

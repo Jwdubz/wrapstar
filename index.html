@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0710" />
+    <meta
+      name="description"
+      content="An independent website concept by Jarrett Wroten, featuring Wrapstar's Bugatti Veyron color-change project and selected work from its Las Vegas shop."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Wrapstar Las Vegas — The Flourish.</title>
+    <script>
+      // Restore this visitor's choice before styles or playback can start.
+      document.documentElement.dataset.motion = "full";
+      try {
+        if (localStorage.getItem("wrapstar-motion-v1") === "reduced") {
+          document.documentElement.dataset.motion = "reduced";
+        }
+      } catch { /* Settings still work for this visit when storage is unavailable. */ }
+    </script>
+    <link rel="icon" href="assets/brand/wrapstar-logo.png" type="image/png" />
+    <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/posters/finish-loop-wide.png" as="image" media="(min-width: 701px)" />
+    <link rel="preload" href="assets/posters/finish-loop-tall.png" as="image" media="(max-width: 700px)" />
+    <link rel="stylesheet" href="styles.css?v=20260904-flourish" />
+    <script src="script.js?v=20260904-published-concept" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the experience</a>
+
+    <details class="accessibility-settings" id="accessibility-settings" hidden>
+      <summary>Accessibility <span id="motion-status">· Motion on</span></summary>
+      <div class="accessibility-panel">
+        <fieldset aria-describedby="motion-help motion-storage-status">
+          <legend>Motion</legend>
+          <label><input type="radio" name="motion" value="full" checked /> Full motion</label>
+          <label><input type="radio" name="motion" value="reduced" /> Reduced motion</label>
+        </fieldset>
+        <p id="motion-help">Reduced motion pauses the films and removes animated transitions. All content and links remain available.</p>
+        <p id="motion-storage-status">Your choice is saved for this site in this browser.</p>
+        <button type="button" id="close-accessibility">Close settings</button>
+      </div>
+    </details>
+
+    <header class="site-header" aria-label="Wrapstar primary navigation">
+      <a class="brand" href="#top" aria-label="Wrapstar Las Vegas home">
+        <img src="assets/brand/wrapstar-logo.png" alt="Wrapstar" width="230" height="128" />
+      </a>
+
+      <nav class="header-actions" aria-label="Wrapstar navigation">
+        <a class="portfolio-link" href="#portfolio">Portfolio</a>
+        <a class="phone" href="tel:+17029438877">702-943-8877</a>
+        <a class="quote-link" href="#quote">Your Project</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="passage" id="top" tabindex="-1" aria-label="Inside a Wrapstar full color-change project">
+        <div class="film-stage" aria-hidden="true">
+          <figure class="film film--bookend is-revealed" data-scene="0">
+            <video
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/posters/finish-loop-wide.png"
+              data-poster-wide="assets/posters/finish-loop-wide.png"
+              data-poster-tall="assets/posters/finish-loop-tall.png"
+            >
+              <source media="(max-width: 700px)" src="assets/video/finish-loop-tall.mp4" type="video/mp4" />
+              <source src="assets/video/finish-loop-wide.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <figure class="film film--closer" data-scene="1">
+            <video
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/posters/closer-loop-wide.png"
+              data-poster-wide="assets/posters/closer-loop-wide.png"
+              data-poster-tall="assets/posters/closer-loop-tall.png"
+            >
+              <source media="(max-width: 700px)" src="assets/video/closer-loop-tall.mp4" type="video/mp4" />
+              <source src="assets/video/closer-loop-wide.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <figure class="film film--apart" data-scene="2">
+            <video
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/posters/apart-loop-wide.png"
+              data-poster-wide="assets/posters/apart-loop-wide.png"
+              data-poster-tall="assets/posters/apart-loop-tall.png"
+            >
+              <source media="(max-width: 700px)" src="assets/video/apart-loop-tall.mp4" type="video/mp4" />
+              <source src="assets/video/apart-loop-wide.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <figure class="film film--edge" data-scene="3">
+            <video
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/posters/edge-loop-wide.png"
+              data-poster-wide="assets/posters/edge-loop-wide.png"
+              data-poster-tall="assets/posters/edge-loop-tall.png"
+            >
+              <source media="(max-width: 700px)" src="assets/video/edge-loop-tall.mp4" type="video/mp4" />
+              <source src="assets/video/edge-loop-wide.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <figure class="film film--finished" data-scene="4">
+            <video
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/posters/finish-loop-wide.png"
+              data-poster-wide="assets/posters/finish-loop-wide.png"
+              data-poster-tall="assets/posters/finish-loop-tall.png"
+            >
+              <source media="(max-width: 700px)" src="assets/video/finish-loop-tall.mp4" type="video/mp4" />
+              <source src="assets/video/finish-loop-wide.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <div class="film-stage__grade"></div>
+        </div>
+
+        <div class="beats">
+          <section class="beat beat--bookend is-current" data-scene="0" aria-labelledby="bookend-title" aria-hidden="true">
+            <div class="beat__copy">
+              <h1 id="bookend-title"><span>The</span> <span class="gold">Flourish.</span></h1>
+              <p>An icon, made personal.</p>
+              <p class="project-caption">Bugatti Veyron · Full color change</p>
+            </div>
+          </section>
+
+          <section class="beat beat--opening" data-scene="1" aria-labelledby="opening-title" aria-hidden="true">
+            <div class="beat__copy">
+              <h1 id="opening-title"><span>A closer</span> <span class="gold">look.</span></h1>
+              <p>Follow the color along each curve and edge.</p>
+              <p class="project-caption">Inside the Veyron color change</p>
+            </div>
+          </section>
+
+          <section class="beat beat--apart" data-scene="2" aria-labelledby="apart-title" aria-hidden="true">
+            <div class="beat__copy">
+              <h2 id="apart-title">The work beneath.</h2>
+              <p>Mirrors and trim come off so the new color reaches beyond the visible panels.</p>
+            </div>
+          </section>
+
+          <section class="beat beat--edge" data-scene="3" aria-labelledby="edge-title" aria-hidden="true">
+            <div class="beat__copy">
+              <h2 id="edge-title">Open the door.</h2>
+              <p>The same blue, carried through the Veyron’s door jambs.</p>
+            </div>
+          </section>
+
+          <section class="beat beat--quote" id="quote" data-scene="4" tabindex="-1" aria-labelledby="quote-title" aria-hidden="true" inert>
+            <div class="quote-composition">
+              <div class="quote-intro">
+                <h2 id="quote-title">Make it yours.</h2>
+                <p>Tell us about your car and the finish you have in mind.</p>
+              </div>
+
+              <form class="quote-form" id="quote-form" novalidate>
+                <p class="form-status">Independent website concept by Jarrett Wroten. This form previews an inquiry and does not contact Wrapstar. To discuss your car with the shop, call <a href="tel:+17029438877">702-943-8877</a>.</p>
+                <label>
+                  <span>Your name</span>
+                  <input name="name" autocomplete="name" required />
+                </label>
+                <label>
+                  <span>Email or phone</span>
+                  <input name="contact" autocomplete="email" required />
+                </label>
+                <label>
+                  <span>Your car · year, make, and model</span>
+                  <input name="vehicle" autocomplete="off" required />
+                </label>
+                <label>
+                  <span>The work you have in mind</span>
+                  <select name="service" required>
+                    <option value="">Select a service</option>
+                    <option>Paint Protection Film</option>
+                    <option>Full Color-Change Wrap</option>
+                    <option>Ceramic Coating</option>
+                    <option>Window Tint</option>
+                    <option>Windshield Protection</option>
+                    <option>Paint Correction</option>
+                    <option>Custom Work</option>
+                  </select>
+                </label>
+                <button type="submit">Preview Inquiry</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="trust-and-contact">
+              <img
+                class="dealer-mark"
+                src="assets/brand/ceramic-pro-las-vegas.png"
+                alt="Ceramic Pro Las Vegas Elite Dealer"
+                width="344"
+                height="122"
+              />
+              <p>
+                <a href="tel:+17029438877">702-943-8877</a><br />
+                8540 Dean Martin Dr. Ste 170 · Las Vegas, NV 89139<br />
+                Monday–Friday · 9am–6pm
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <section class="sr-only" aria-labelledby="story-title">
+          <h1 id="story-title">The Flourish. A Bugatti Veyron color-change project by Wrapstar.</h1>
+          <ol>
+            <li>The finished Bugatti Veyron appears first.</li>
+            <li>A closer look at color being applied along the car’s curves and edges.</li>
+            <li>Mirrors and trim come off so the new color can reach the edges beneath.</li>
+            <li>The color continues through the door jambs and other hidden areas.</li>
+            <li>The finished Bugatti returns beside the project inquiry preview.</li>
+          </ol>
+        </section>
+      </section>
+
+      <section class="portfolio" id="portfolio" tabindex="-1" aria-labelledby="portfolio-title">
+        <div class="portfolio-heading">
+          <h2 id="portfolio-title">Selected<br />work.</h2>
+          <p>
+            Explore Wrapstar projects, from the Koenigsegg Jesko to the Ferrari 812 Superfast.
+          </p>
+        </div>
+
+        <div class="portfolio-wall" aria-label="Official Wrapstar project clips">
+          <a
+            class="portfolio-project"
+            href="https://www.youtube.com/watch?v=lzmSnKoWXFk"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Watch Wrapstar's Koenigsegg Jesko full-body paint protection film clip on YouTube"
+          >
+            <img src="assets/portfolio/jesko.png" alt="Koenigsegg Jesko inside the Wrapstar shop" loading="lazy" decoding="async" />
+            <span class="portfolio-project__copy">
+              <strong>Koenigsegg Jesko</strong>
+              <span>Full-body PPF · Finished work</span>
+            </span>
+          </a>
+
+          <a
+            class="portfolio-project"
+            href="https://www.youtube.com/watch?v=hxTn17bAtS8"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Watch Wrapstar's Porsche 911 full-body paint protection film disassembly clip on YouTube"
+          >
+            <img src="assets/portfolio/porsche-911.png" alt="Porsche 911 being disassembled inside the Wrapstar shop" loading="lazy" decoding="async" />
+            <span class="portfolio-project__copy">
+              <strong>Porsche 911</strong>
+              <span>Full-body PPF · Disassembly</span>
+            </span>
+          </a>
+
+          <a
+            class="portfolio-project"
+            href="https://www.youtube.com/watch?v=5E1t8VP4HcA"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Watch Wrapstar's Mercedes SLS Black Series paint protection film clip on YouTube"
+          >
+            <img src="assets/portfolio/sls-black-series.png" alt="Mercedes SLS Black Series inside the Wrapstar shop" loading="lazy" decoding="async" />
+            <span class="portfolio-project__copy">
+              <strong>Mercedes SLS Black Series</strong>
+              <span>Frontal PPF</span>
+            </span>
+          </a>
+
+          <a
+            class="portfolio-project"
+            href="https://www.youtube.com/watch?v=5UoU1Hj0zic"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Watch Wrapstar's Mercedes G-Wagon full-body paint protection film clip on YouTube"
+          >
+            <img src="assets/portfolio/g-wagon.png" alt="Mercedes G-Wagon shown in Wrapstar project footage" loading="lazy" decoding="async" />
+            <span class="portfolio-project__copy">
+              <strong>Mercedes G-Wagon 4×4</strong>
+              <span>Full-body PPF</span>
+            </span>
+          </a>
+
+          <a
+            class="portfolio-project"
+            href="https://www.youtube.com/watch?v=ydInDoq53DA"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Watch Wrapstar's Ferrari 812 Superfast stealth paint protection film disassembly clip on YouTube"
+          >
+            <img src="assets/portfolio/ferrari-812.png" alt="Ferrari 812 Superfast being disassembled inside the Wrapstar shop" loading="lazy" decoding="async" />
+            <span class="portfolio-project__copy">
+              <strong>Ferrari 812 Superfast</strong>
+              <span>Stealth PPF · Disassembly</span>
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <noscript>
+      <p class="noscript-note">Enable JavaScript to explore the film. To discuss your car with Wrapstar, call 702-943-8877.</p>
+    </noscript>
+  </body>
+</html>
