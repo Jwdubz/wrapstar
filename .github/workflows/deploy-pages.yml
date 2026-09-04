@@ -1,0 +1,93 @@
+name: Deploy Wrapstar to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wrapstar-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out the exact candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Download only the eight approved release media assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+
+          manifest = json.loads(Path("publish-manifest.json").read_text(encoding="utf-8-sig"))
+          release = manifest["mediaRelease"]
+          if release != "media-20260904":
+              raise SystemExit("Refusing an unapproved media release.")
+          expected = {
+              f"assets/video/{scene}-loop-{layout}.mp4"
+              for scene in ("apart", "closer", "edge", "finish")
+              for layout in ("wide", "tall")
+          }
+          media = [item["path"] for item in manifest["files"] if item["path"].startswith("assets/video/")]
+          if len(media) != 8 or set(media) != expected:
+              raise SystemExit("Manifest must name exactly the eight approved runtime MP4s.")
+          for folder in (Path("assets"), Path("assets/video")):
+              if folder.is_symlink():
+                  raise SystemExit(f"Refusing a linked media directory: {folder}")
+          destination = Path("assets/video")
+          destination.mkdir(parents=True, exist_ok=True)
+          for media_path in sorted(media):
+              target = Path(media_path)
+              if target.exists() or target.is_symlink():
+                  raise SystemExit(f"Refusing to overwrite an existing media file: {target}")
+              subprocess.run(
+                  ["gh", "release", "download", release,
+                   "--repo", os.environ["GITHUB_REPOSITORY"],
+                   "--pattern", target.name, "--dir", str(destination)],
+                  check=True,
+              )
+          PY
+
+      - name: Verify hashes and assemble only the public runtime
+        run: python3 scripts/build-pages.py
+
+      - name: Upload the verified Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the verified artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
