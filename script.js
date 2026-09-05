@@ -18,7 +18,11 @@ let ticking = false;
 let sceneNavigationLock = null;
 let sceneNavigationTimer = null;
 const outgoingScenes = new Map();
-const mediaStates = videos.map(() => ({ playRequest: null, autoplayDenied: false }));
+const mediaRetryDelays = [1000, 3000, 8000];
+const mediaStates = videos.map(() => ({
+  playRequest: null, autoplayDenied: false, retryTimer: null, retries: 0,
+  lastRetryAt: -Infinity, resumeTime: null, healthySince: null,
+}));
 
 function isPassageVisible() {
   const bounds = passage.getBoundingClientRect();
@@ -44,12 +48,18 @@ function selectedVideoSource(video) {
 
 function pauseVideo(video) {
   const state = mediaStates[videos.indexOf(video)];
+  window.clearTimeout(state.retryTimer);
+  state.retryTimer = null;
+  state.healthySince = null;
   if (!video.paused || state.playRequest) video.pause();
   state.playRequest = null;
 }
 
 function releaseVideo(video) {
   pauseVideo(video);
+  const state = mediaStates[videos.indexOf(video)];
+  state.retries = 0;
+  state.resumeTime = null;
   if (!video.hasAttribute("src")) return;
   video.removeAttribute("src");
   video.preload = "none";
@@ -61,10 +71,41 @@ function prepareVideo(video) {
   const source = selectedVideoSource(video);
   if (!source || video.getAttribute("src") === source) return;
   pauseVideo(video);
-  mediaStates[videos.indexOf(video)].autoplayDenied = false;
+  const state = mediaStates[videos.indexOf(video)];
+  state.autoplayDenied = false;
+  state.retries = 0;
+  state.resumeTime = null;
   video.preload = "auto";
   video.src = source;
   video.load();
+}
+
+function retryFailedVideo(video, renewedSignal = false) {
+  if (!video || video !== videos[currentScene] || !video.error ||
+      !video.hasAttribute("src") || !shouldPlayFilm() || navigator.onLine === false) return;
+  const state = mediaStates[videos.indexOf(video)];
+  if (state.retryTimer !== null) return;
+  const renewedBudget = state.retries >= mediaRetryDelays.length;
+  let cooldown = 0;
+  if (renewedBudget) {
+    if (!renewedSignal) return;
+    // A new visit/interaction/online signal may renew the budget, not a scroll.
+    cooldown = Math.max(0, 10000 - (performance.now() - state.lastRetryAt));
+  }
+  const source = video.getAttribute("src");
+  state.retryTimer = window.setTimeout(() => {
+    state.retryTimer = null;
+    if (video !== videos[currentScene] || !video.error || !shouldPlayFilm() ||
+        navigator.onLine === false || video.getAttribute("src") !== source) return;
+    if (renewedBudget) state.retries = 0;
+    if (state.resumeTime === null) state.resumeTime = video.currentTime;
+    state.retries += 1;
+    state.lastRetryAt = performance.now();
+    pauseVideo(video);
+    // play() cannot clear a latched MediaError; restart this same resource.
+    video.load();
+    requestVideoPlay(video);
+  }, Math.max(cooldown, mediaRetryDelays[renewedBudget ? 0 : state.retries]));
 }
 
 function releaseDistantVideos() {
@@ -93,7 +134,7 @@ function prepareUpcomingVideo() {
 }
 
 function requestVideoPlay(video) {
-  if (!video || video !== videos[currentScene] || !shouldPlayFilm() || !video.hasAttribute("src")) {
+  if (!video || video.error || video !== videos[currentScene] || !shouldPlayFilm() || !video.hasAttribute("src")) {
     return;
   }
 
@@ -168,8 +209,10 @@ function setScene(nextScene) {
   }
   releaseDistantVideos();
   if (currentScene === videos.length - 1 && videos[currentScene].hasAttribute("src")) {
+    mediaStates[currentScene].resumeTime = null;
     videos[currentScene].currentTime = 0;
   }
+  retryFailedVideo(videos[currentScene], true);
   syncPlaybackPreference();
 }
 
@@ -217,6 +260,7 @@ function syncPlaybackPreference() {
   if (!canPlay) return;
   prepareVideo(active);
   requestVideoPlay(active);
+  retryFailedVideo(active);
   prepareUpcomingVideo();
 }
 
@@ -228,7 +272,14 @@ window.addEventListener("resize", () => {
   if (focusedScene >= 0) setScene(focusedScene);
   else requestSceneRead();
 });
-document.addEventListener("visibilitychange", syncPlaybackPreference);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) retryFailedVideo(videos[currentScene], true);
+  syncPlaybackPreference();
+});
+window.addEventListener("online", () => {
+  retryFailedVideo(videos[currentScene], true);
+  syncPlaybackPreference();
+});
 navigator.connection?.addEventListener?.("change", syncPlaybackPreference);
 narrowQuery.addEventListener?.("change", () => {
   videos.forEach((video) => {
@@ -311,8 +362,28 @@ videos.forEach((video) => {
     hadEagerSource = true;
   });
   if (hadEagerSource) video.load();
+  const state = mediaStates[videos.indexOf(video)];
+  video.addEventListener("error", () => {
+    state.healthySince = null;
+    retryFailedVideo(video);
+  });
+  video.addEventListener("loadedmetadata", () => {
+    if (state.resumeTime === null) return;
+    const resumeTime = state.resumeTime;
+    state.resumeTime = null;
+    if (Number.isFinite(video.duration) && resumeTime > 0) {
+      video.currentTime = Math.min(resumeTime, Math.max(0, video.duration - 0.05));
+    }
+  });
+  video.addEventListener("playing", () => { state.healthySince = performance.now(); });
+  video.addEventListener("waiting", () => { state.healthySince = null; });
   ["progress", "timeupdate", "canplay"].forEach((event) => {
     video.addEventListener(event, () => {
+      if (state.healthySince !== null && !video.paused && !video.error &&
+          video.readyState >= 3 && performance.now() - state.healthySince >= 5000) {
+        state.retries = 0;
+        state.healthySince = null;
+      }
       if (video === videos[currentScene]) prepareUpcomingVideo();
     });
   });
@@ -321,10 +392,11 @@ videos.forEach((video) => {
 const retryAutoplay = () => {
   if (currentScene < 0) return;
   mediaStates[currentScene].autoplayDenied = false;
+  retryFailedVideo(videos[currentScene], true);
   syncPlaybackPreference();
 };
-window.addEventListener("pointerdown", retryAutoplay, { once: true, passive: true });
-window.addEventListener("keydown", retryAutoplay, { once: true });
+window.addEventListener("pointerdown", retryAutoplay, { passive: true });
+window.addEventListener("keydown", retryAutoplay);
 
 function renderMotionChoice() {
   document.documentElement.dataset.motion = reducedMotion ? "reduced" : "full";

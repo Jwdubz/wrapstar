@@ -25,6 +25,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Test media recovery state transitions
+        run: node scripts/media-recovery-tests.cjs
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
 

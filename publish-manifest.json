@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 15045,
-      "sha256": "f08f8a044fe814d3438462b26856a3da497013b838d0371d50ca5af32b8c558e"
+      "bytes": 15050,
+      "sha256": "802c187719121b4148fb7df79de75c6f0d363d5ffba30528497cba8cd9d75e0b"
     },
     {
       "path": "styles.css",
@@ -13,8 +13,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 13517,
-      "sha256": "17d316075df582fb81c986ebde27947fb5badfb8b54d2a7120d218bc09a7c881"
+      "bytes": 16474,
+      "sha256": "cf01adec61d0b9dac9fb60a89dfc2f0ed7443173490f1ce34cb70b32855ea07a"
     },
     {
       "path": "CNAME",
