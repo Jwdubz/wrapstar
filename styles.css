@@ -1023,23 +1023,6 @@ body.is-final .quote-form select {
 
 }
 
-/* A one-pixel dark halo keeps text distinct from every moving film frame. */
-.beat__copy h1,
-.beat__copy h2,
-.beat__copy p,
-.quote-intro h2,
-.quote-intro p,
-.quote-form label > span,
-.quote-form input,
-.quote-form select,
-.form-status,
-.trust-and-contact p,
-.trust-and-contact a,
-.portfolio-project__copy {
-  -webkit-text-stroke: 2px var(--ink);
-  paint-order: stroke fill;
-}
-
 .beat__copy > p,
 .quote-intro > p,
 .trust-and-contact p,
