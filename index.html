@@ -21,10 +21,19 @@
     </script>
     <link rel="icon" href="assets/brand/wrapstar-logo.png" type="image/png" />
     <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="assets/posters/finish-loop-wide.png" as="image" media="(min-width: 701px)" />
-    <link rel="preload" href="assets/posters/finish-loop-tall.png" as="image" media="(max-width: 700px)" />
+    <link rel="preload" href="assets/posters/finish-loop-wide.webp" as="image" type="image/webp" media="(min-width: 701px)" />
+    <link rel="preload" href="assets/posters/finish-loop-tall.webp" as="image" type="image/webp" media="(max-width: 700px)" />
     <link rel="stylesheet" href="styles.css?v=20260904-clean-type" />
-    <script src="script.js?v=20260904-published-concept" defer></script>
+    <script src="script.js?v=20260905-streaming" defer></script>
+    <noscript>
+      <style>
+        .film--bookend { background: center / cover url("assets/posters/finish-loop-wide.webp"); }
+        .film--bookend video { display: none; }
+        @media (max-width: 700px) {
+          .film--bookend { background-image: url("assets/posters/finish-loop-tall.webp"); }
+        }
+      </style>
+    </noscript>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the experience</a>
@@ -63,13 +72,12 @@
               muted
               loop
               playsinline
-              preload="metadata"
-              poster="assets/posters/finish-loop-wide.png"
-              data-poster-wide="assets/posters/finish-loop-wide.png"
-              data-poster-tall="assets/posters/finish-loop-tall.png"
+              preload="none"
+              data-poster-wide="assets/posters/finish-loop-wide.webp"
+              data-poster-tall="assets/posters/finish-loop-tall.webp"
             >
-              <source media="(max-width: 700px)" src="assets/video/finish-loop-tall.mp4" type="video/mp4" />
-              <source src="assets/video/finish-loop-wide.mp4" type="video/mp4" />
+              <source media="(max-width: 700px)" data-src="assets/video/finish-web-tall.mp4" type="video/mp4" />
+              <source data-src="assets/video/finish-web-wide.mp4" type="video/mp4" />
             </video>
           </figure>
 
@@ -78,13 +86,12 @@
               muted
               loop
               playsinline
-              preload="metadata"
-              poster="assets/posters/closer-loop-wide.png"
-              data-poster-wide="assets/posters/closer-loop-wide.png"
-              data-poster-tall="assets/posters/closer-loop-tall.png"
+              preload="none"
+              data-poster-wide="assets/posters/closer-loop-wide.webp"
+              data-poster-tall="assets/posters/closer-loop-tall.webp"
             >
-              <source media="(max-width: 700px)" src="assets/video/closer-loop-tall.mp4" type="video/mp4" />
-              <source src="assets/video/closer-loop-wide.mp4" type="video/mp4" />
+              <source media="(max-width: 700px)" data-src="assets/video/closer-web-tall.mp4" type="video/mp4" />
+              <source data-src="assets/video/closer-web-wide.mp4" type="video/mp4" />
             </video>
           </figure>
 
@@ -93,13 +100,12 @@
               muted
               loop
               playsinline
-              preload="metadata"
-              poster="assets/posters/apart-loop-wide.png"
-              data-poster-wide="assets/posters/apart-loop-wide.png"
-              data-poster-tall="assets/posters/apart-loop-tall.png"
+              preload="none"
+              data-poster-wide="assets/posters/apart-loop-wide.webp"
+              data-poster-tall="assets/posters/apart-loop-tall.webp"
             >
-              <source media="(max-width: 700px)" src="assets/video/apart-loop-tall.mp4" type="video/mp4" />
-              <source src="assets/video/apart-loop-wide.mp4" type="video/mp4" />
+              <source media="(max-width: 700px)" data-src="assets/video/apart-web-tall.mp4" type="video/mp4" />
+              <source data-src="assets/video/apart-web-wide.mp4" type="video/mp4" />
             </video>
           </figure>
 
@@ -108,13 +114,12 @@
               muted
               loop
               playsinline
-              preload="metadata"
-              poster="assets/posters/edge-loop-wide.png"
-              data-poster-wide="assets/posters/edge-loop-wide.png"
-              data-poster-tall="assets/posters/edge-loop-tall.png"
+              preload="none"
+              data-poster-wide="assets/posters/edge-loop-wide.webp"
+              data-poster-tall="assets/posters/edge-loop-tall.webp"
             >
-              <source media="(max-width: 700px)" src="assets/video/edge-loop-tall.mp4" type="video/mp4" />
-              <source src="assets/video/edge-loop-wide.mp4" type="video/mp4" />
+              <source media="(max-width: 700px)" data-src="assets/video/edge-web-tall.mp4" type="video/mp4" />
+              <source data-src="assets/video/edge-web-wide.mp4" type="video/mp4" />
             </video>
           </figure>
 
@@ -123,13 +128,12 @@
               muted
               loop
               playsinline
-              preload="metadata"
-              poster="assets/posters/finish-loop-wide.png"
-              data-poster-wide="assets/posters/finish-loop-wide.png"
-              data-poster-tall="assets/posters/finish-loop-tall.png"
+              preload="none"
+              data-poster-wide="assets/posters/finish-loop-wide.webp"
+              data-poster-tall="assets/posters/finish-loop-tall.webp"
             >
-              <source media="(max-width: 700px)" src="assets/video/finish-loop-tall.mp4" type="video/mp4" />
-              <source src="assets/video/finish-loop-wide.mp4" type="video/mp4" />
+              <source media="(max-width: 700px)" data-src="assets/video/finish-web-tall.mp4" type="video/mp4" />
+              <source data-src="assets/video/finish-web-wide.mp4" type="video/mp4" />
             </video>
           </figure>
 

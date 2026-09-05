@@ -20,6 +20,8 @@
 /assets/posters/*
 !/assets/posters/*-loop-wide.png
 !/assets/posters/*-loop-tall.png
+!/assets/posters/*-loop-wide.webp
+!/assets/posters/*-loop-tall.webp
 # Videos are exact, hash-verified GitHub release assets, assembled by Actions.
 /assets/video/
 /_site/

@@ -1,10 +1,10 @@
 {
-  "mediaRelease": "media-20260904",
+  "mediaRelease": "media-web-20260905",
   "files": [
     {
       "path": "index.html",
-      "bytes": 14932,
-      "sha256": "08556409cc34328ee8b3e9a18c6f79eb67602f0c8492b088dd61b9e70a77501b"
+      "bytes": 15045,
+      "sha256": "f08f8a044fe814d3438462b26856a3da497013b838d0371d50ca5af32b8c558e"
     },
     {
       "path": "styles.css",
@@ -13,8 +13,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 8796,
-      "sha256": "82631131e1c1df5a9944d57ee49a813a3c52026c4ebb3075f99e971aac6ca634"
+      "bytes": 13517,
+      "sha256": "17d316075df582fb81c986ebde27947fb5badfb8b54d2a7120d218bc09a7c881"
     },
     {
       "path": "CNAME",
@@ -72,84 +72,84 @@
       "sha256": "3697a8b2fd6b66d9b43089c1f89d4aa43d1e2c5b979bb8ede92e21aa03a95d46"
     },
     {
-      "path": "assets/posters/apart-loop-wide.png",
-      "bytes": 5086575,
-      "sha256": "846eff2939e597aade610940aef142533c8ff8b5de7ae942859d33f6b941f4b5"
+      "path": "assets/posters/apart-loop-wide.webp",
+      "bytes": 1697484,
+      "sha256": "a798f7742d1f6e2b6e94c1b555fe6057b85d4cdb19685ca17b00a1ce3206267e"
     },
     {
-      "path": "assets/posters/apart-loop-tall.png",
-      "bytes": 1294861,
-      "sha256": "9ce2277f016c97e11cbef31bef7c43b27791b4636959b6cef66bffe7db95af4f"
+      "path": "assets/posters/apart-loop-tall.webp",
+      "bytes": 428356,
+      "sha256": "712f753b48804f4574c935b4d9bbd3fe1611721fba87e349e61111177137ec9a"
     },
     {
-      "path": "assets/video/apart-loop-wide.mp4",
-      "bytes": 97147705,
-      "sha256": "29819c0ec49df04564ed781fbd37b4dba17e0a5953f75fff55ee0e4b2a83b685"
+      "path": "assets/video/apart-web-wide.mp4",
+      "bytes": 29609836,
+      "sha256": "bf5fd256e6a84bc710d568dd8359ef04c6aa91fe3ffccf5589fdb2a18eca6366"
     },
     {
-      "path": "assets/video/apart-loop-tall.mp4",
-      "bytes": 30432620,
-      "sha256": "48b58a2d93d4e303b28daefe70eca88a1ea7ad19698bbe782bda7686d5b8ae83"
+      "path": "assets/video/apart-web-tall.mp4",
+      "bytes": 14857864,
+      "sha256": "7bd137911f331629ce16b05acd2047fa1cfa6e9ef29f905d8eb1e280ae91514c"
     },
     {
-      "path": "assets/posters/closer-loop-wide.png",
-      "bytes": 5218352,
-      "sha256": "9f760de4b495f9664af96e7b4e10510fe1468b6a54ae4733b623bb22d9a0bd0d"
+      "path": "assets/posters/closer-loop-wide.webp",
+      "bytes": 1725702,
+      "sha256": "336b89239a42c844b6dddc1e06702a368bb391e9ac21b7afb12f4d044285d5f1"
     },
     {
-      "path": "assets/posters/closer-loop-tall.png",
-      "bytes": 1448162,
-      "sha256": "78d07c256afe7b6d2f14281c6b93d12f2a8fe322dad251ccbd0d081871382426"
+      "path": "assets/posters/closer-loop-tall.webp",
+      "bytes": 473408,
+      "sha256": "f17a27c76e72f1a7dafdd3114014c9b3ffc4149f9cf8f2dd8a1a63e613b1d87c"
     },
     {
-      "path": "assets/video/closer-loop-wide.mp4",
-      "bytes": 149881086,
-      "sha256": "2136a709dbe0a34320677b2f5cd160b4c95e6e529b8c09dbb73ea4137a1fc408"
+      "path": "assets/video/closer-web-wide.mp4",
+      "bytes": 38446030,
+      "sha256": "734faed892a39b9d1e3f6999f4d59c89258dc9a94f6d34ce7a94c431b09bd128"
     },
     {
-      "path": "assets/video/closer-loop-tall.mp4",
-      "bytes": 52971287,
-      "sha256": "f75c1fe481e280d7e5462807d6bc8721d243b8da4ee140035d27447cae6c0ae0"
+      "path": "assets/video/closer-web-tall.mp4",
+      "bytes": 19224386,
+      "sha256": "00b4cb9cd488eb32a848f2bbd40fe88389133b2f275188d4dea57ea486ce83c4"
     },
     {
-      "path": "assets/posters/edge-loop-wide.png",
-      "bytes": 3872384,
-      "sha256": "ee0f22176d88f25c1de8c0c82cf17338f2dadd96fdaa8acdb1ec3507d6ededce"
+      "path": "assets/posters/edge-loop-wide.webp",
+      "bytes": 1332042,
+      "sha256": "5391fdd8ceca4d743aae94cbd9cf9b51f228b9374297c0720d1f5cbb7a675fc9"
     },
     {
-      "path": "assets/posters/edge-loop-tall.png",
-      "bytes": 954118,
-      "sha256": "2f7987cc251b92303955f94677d9fb8fef1b294e153953448acf86ad8d7fb90a"
+      "path": "assets/posters/edge-loop-tall.webp",
+      "bytes": 331484,
+      "sha256": "7adac6d1aca97fb43851189ce4603888c21480cbceb42f2d3a58ccc33cd0545f"
     },
     {
-      "path": "assets/video/edge-loop-wide.mp4",
-      "bytes": 149828214,
-      "sha256": "949d7a19b70f988177f1cc620eaa2a0d0f0a2fab0f254b9300f1cec98003a331"
+      "path": "assets/video/edge-web-wide.mp4",
+      "bytes": 38389789,
+      "sha256": "214092e17e9c92bcc7b090377765d44876d37b4542e1034f831c7cfefd759a5f"
     },
     {
-      "path": "assets/video/edge-loop-tall.mp4",
-      "bytes": 52578774,
-      "sha256": "d4c46516ab3ab6c4e6ca715ff3edecc9fa7e561738f57ecc57f4013ffdccb936"
+      "path": "assets/video/edge-web-tall.mp4",
+      "bytes": 19194804,
+      "sha256": "2e77ca2d16b217b44e09ada2d6d14c073e629e89b807c8e0d4ae1edf0087587d"
     },
     {
-      "path": "assets/posters/finish-loop-wide.png",
-      "bytes": 8711802,
-      "sha256": "e1633595028688de35ee672699268052cc43e41b337e010c23cd65423712ae39"
+      "path": "assets/posters/finish-loop-wide.webp",
+      "bytes": 3282244,
+      "sha256": "94170462fbade0b92852e8a4be1c46c2167a2e6beed45bf3c990eeaf7dec6a53"
     },
     {
-      "path": "assets/posters/finish-loop-tall.png",
-      "bytes": 2781078,
-      "sha256": "59d5fc67a39379d9e8034ed1286fe5e656f9f0520ed975792fa5784657f1de89"
+      "path": "assets/posters/finish-loop-tall.webp",
+      "bytes": 1043240,
+      "sha256": "555724e8f1e3872deffec66b69dc5ca0908c91adde27a20144d99866ae5511d1"
     },
     {
-      "path": "assets/video/finish-loop-wide.mp4",
-      "bytes": 154870875,
-      "sha256": "35aa26ff0ebe8640e66676002166e22143989e4eaac3b848aee06e9e700ab260"
+      "path": "assets/video/finish-web-wide.mp4",
+      "bytes": 36178963,
+      "sha256": "80d76b3abcf7d2e8302af803cab0ef798812ead881af9c0556322ae2befe48d7"
     },
     {
-      "path": "assets/video/finish-loop-tall.mp4",
-      "bytes": 43535815,
-      "sha256": "ed8db1d3a8544cc0b64ab0fac77356e92f29a13780f565d1541aa1aeb74b4261"
+      "path": "assets/video/finish-web-tall.mp4",
+      "bytes": 18045495,
+      "sha256": "e234119315b1893dad1afcd8421db00c2e7cd04c825a074d69eb57ee50293105"
     }
   ]
 }

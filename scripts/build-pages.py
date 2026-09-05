@@ -15,7 +15,7 @@ PUBLIC_ASSET_TYPES = {
     "brand": {".png"},
     "fonts": {".woff2"},
     "portfolio": {".png"},
-    "posters": {".png"},
+    "posters": {".png", ".webp"},
     "video": {".mp4"},
 }
 

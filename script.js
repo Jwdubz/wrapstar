@@ -1,6 +1,8 @@
 const films = [...document.querySelectorAll(".film")];
 const beats = [...document.querySelectorAll(".beat")];
 const videos = films.map((film) => film.querySelector("video"));
+const passage = document.querySelector(".passage");
+const siteHeader = document.querySelector(".site-header");
 const quoteForm = document.querySelector("#quote-form");
 const formStatus = document.querySelector("#form-status");
 
@@ -15,25 +17,91 @@ let currentScene = -1;
 let ticking = false;
 let sceneNavigationLock = null;
 let sceneNavigationTimer = null;
+const outgoingScenes = new Map();
+const mediaStates = videos.map(() => ({ playRequest: null, autoplayDenied: false }));
+
+function isPassageVisible() {
+  const bounds = passage.getBoundingClientRect();
+  return bounds.bottom > siteHeader.getBoundingClientRect().bottom && bounds.top < window.innerHeight;
+}
 
 function shouldPlayFilm() {
   const saveData = Boolean(navigator.connection?.saveData);
-  return !document.hidden && !reducedMotion && !saveData;
+  return !document.hidden && !reducedMotion && !saveData && isPassageVisible();
 }
 
-function applyResponsivePosters() {
-  videos.forEach((video) => {
-    video.poster = narrowQuery.matches ? video.dataset.posterTall : video.dataset.posterWide;
+function applyResponsivePoster(video) {
+  const poster = narrowQuery.matches ? video.dataset.posterTall : video.dataset.posterWide;
+  if (video.getAttribute("poster") !== poster) video.poster = poster;
+}
+
+function selectedVideoSource(video) {
+  const source = [...video.querySelectorAll("source")].find((candidate) => {
+    return !candidate.media || window.matchMedia(candidate.media).matches;
+  });
+  return source?.dataset.src || source?.getAttribute("src");
+}
+
+function pauseVideo(video) {
+  const state = mediaStates[videos.indexOf(video)];
+  if (!video.paused || state.playRequest) video.pause();
+  state.playRequest = null;
+}
+
+function releaseVideo(video) {
+  pauseVideo(video);
+  if (!video.hasAttribute("src")) return;
+  video.removeAttribute("src");
+  video.preload = "none";
+  video.load();
+}
+
+function prepareVideo(video) {
+  applyResponsivePoster(video);
+  const source = selectedVideoSource(video);
+  if (!source || video.getAttribute("src") === source) return;
+  pauseVideo(video);
+  mediaStates[videos.indexOf(video)].autoplayDenied = false;
+  video.preload = "auto";
+  video.src = source;
+  video.load();
+}
+
+function releaseDistantVideos() {
+  videos.forEach((video, index) => {
+    if (index !== currentScene && index !== currentScene + 1 && !outgoingScenes.has(index)) {
+      releaseVideo(video);
+    }
   });
 }
 
+function prepareUpcomingVideo() {
+  const active = videos[currentScene];
+  const upcoming = videos[currentScene + 1];
+  if (!active || !upcoming || !shouldPlayFilm() || active.readyState < 3) return;
+  if (!Number.isFinite(active.duration) || active.duration <= 0) return;
+
+  // Give the visible film a head start before another download can compete.
+  const requiredAhead = Math.min(6, active.duration - active.currentTime);
+  for (let index = 0; index < active.buffered.length; index += 1) {
+    if (active.buffered.start(index) <= active.currentTime &&
+        active.buffered.end(index) - active.currentTime >= requiredAhead - 0.1) {
+      prepareVideo(upcoming);
+      return;
+    }
+  }
+}
+
 function requestVideoPlay(video) {
-  if (!video || !shouldPlayFilm()) {
+  if (!video || video !== videos[currentScene] || !shouldPlayFilm() || !video.hasAttribute("src")) {
     return;
   }
 
+  const state = mediaStates[videos.indexOf(video)];
+  if (!video.paused || state.playRequest || state.autoplayDenied) return;
   if (video.ended) video.currentTime = 0;
-
+  const attempt = {};
+  state.playRequest = attempt;
   const promise = video.play();
 
   if (promise) {
@@ -42,18 +110,30 @@ function requestVideoPlay(video) {
         // A preference or scene may change while play() is pending.
         if (!shouldPlayFilm() || video !== videos[currentScene]) {
           video.pause();
-          return;
         }
+        if (state.playRequest !== attempt) return;
+        state.playRequest = null;
+        state.autoplayDenied = false;
+        if (video !== videos[currentScene]) return;
         document.body.classList.remove("autoplay-blocked");
       })
-      .catch(() => {
-        document.body.classList.add("autoplay-blocked");
+      .catch((error) => {
+        if (state.playRequest !== attempt) return;
+        state.playRequest = null;
+        // pause()/load() legitimately abort pending play; that is not a denial.
+        if (error.name === "NotAllowedError" && video === videos[currentScene] && shouldPlayFilm()) {
+          state.autoplayDenied = true;
+          document.body.classList.add("autoplay-blocked");
+        }
       });
+  } else {
+    state.playRequest = null;
   }
 }
 
 function setScene(nextScene) {
   if (nextScene === currentScene && beats[nextScene]?.classList.contains("is-current")) {
+    syncPlaybackPreference();
     return;
   }
 
@@ -76,14 +156,21 @@ function setScene(nextScene) {
     }
   });
 
-  videos.forEach((video, index) => {
-    if (index === currentScene && shouldPlayFilm()) {
-      if (index === videos.length - 1 && previousScene !== currentScene) video.currentTime = 0;
-      requestVideoPlay(video);
-    } else {
-      video.pause();
-    }
-  });
+  // Retain the outgoing frame until the authored 950 ms curtain has closed.
+  if (previousScene >= 0) {
+    window.clearTimeout(outgoingScenes.get(previousScene));
+    const releaseTimer = window.setTimeout(() => {
+      if (outgoingScenes.get(previousScene) !== releaseTimer) return;
+      outgoingScenes.delete(previousScene);
+      releaseDistantVideos();
+    }, reducedMotion ? 0 : 1000);
+    outgoingScenes.set(previousScene, releaseTimer);
+  }
+  releaseDistantVideos();
+  if (currentScene === videos.length - 1 && videos[currentScene].hasAttribute("src")) {
+    videos[currentScene].currentTime = 0;
+  }
+  syncPlaybackPreference();
 }
 
 function readSceneFromViewport() {
@@ -100,7 +187,7 @@ function readSceneFromViewport() {
     // Focusing a form field may scroll the quote below the fixed header.
     // Keep that visible form active instead of making its focused field inert.
     const activationTop = index === beats.length - 1
-      ? document.querySelector(".site-header").getBoundingClientRect().bottom
+      ? siteHeader.getBoundingClientRect().bottom
       : 0;
     if (bounds.top <= activationTop + 1) bestScene = index;
   });
@@ -117,12 +204,20 @@ function requestSceneRead() {
 }
 
 function syncPlaybackPreference() {
-  setScene(currentScene);
-  if (shouldPlayFilm()) {
-    requestVideoPlay(videos[currentScene]);
-  } else {
-    videos.forEach((video) => video.pause());
-  }
+  const active = videos[currentScene];
+  if (!active) return;
+  applyResponsivePoster(active);
+  const canPlay = shouldPlayFilm();
+  videos.forEach((video) => {
+    if (!canPlay || video !== active) pauseVideo(video);
+    // Explicit low-motion/data-saving visits use posters, without video fetches.
+    if (reducedMotion || navigator.connection?.saveData) releaseVideo(video);
+  });
+  document.body.classList.toggle("autoplay-blocked", canPlay && mediaStates[currentScene].autoplayDenied);
+  if (!canPlay) return;
+  prepareVideo(active);
+  requestVideoPlay(active);
+  prepareUpcomingVideo();
 }
 
 window.addEventListener("scroll", requestSceneRead, { passive: true });
@@ -136,8 +231,11 @@ window.addEventListener("resize", () => {
 document.addEventListener("visibilitychange", syncPlaybackPreference);
 navigator.connection?.addEventListener?.("change", syncPlaybackPreference);
 narrowQuery.addEventListener?.("change", () => {
-  applyResponsivePosters();
-  videos.forEach((video) => video.load());
+  videos.forEach((video) => {
+    if (video.hasAttribute("poster")) applyResponsivePoster(video);
+    // Reselect only films already hydrated; unseen scenes stay dormant.
+    if (video.hasAttribute("src")) releaseVideo(video);
+  });
   syncPlaybackPreference();
 });
 
@@ -204,9 +302,27 @@ quoteForm.addEventListener("submit", (event) => {
 videos.forEach((video) => {
   video.muted = true;
   video.setAttribute("aria-hidden", "true");
+  video.preload = "none";
+  // Retain compatibility with the previous source markup during the cutover.
+  let hadEagerSource = false;
+  video.querySelectorAll("source[src]").forEach((source) => {
+    if (!source.dataset.src) source.dataset.src = source.getAttribute("src");
+    source.removeAttribute("src");
+    hadEagerSource = true;
+  });
+  if (hadEagerSource) video.load();
+  ["progress", "timeupdate", "canplay"].forEach((event) => {
+    video.addEventListener(event, () => {
+      if (video === videos[currentScene]) prepareUpcomingVideo();
+    });
+  });
 });
 
-const retryAutoplay = () => requestVideoPlay(videos[currentScene]);
+const retryAutoplay = () => {
+  if (currentScene < 0) return;
+  mediaStates[currentScene].autoplayDenied = false;
+  syncPlaybackPreference();
+};
 window.addEventListener("pointerdown", retryAutoplay, { once: true, passive: true });
 window.addEventListener("keydown", retryAutoplay, { once: true });
 
@@ -269,6 +385,5 @@ try {
   motionStorageStatus.textContent = "Your choice applies to this visit. This browser is not allowing it to be saved.";
 }
 accessibilitySettings.hidden = false;
-applyResponsivePosters();
-setScene(0);
-requestSceneRead();
+// Honor restored scroll/hash position without starting an invisible first film.
+readSceneFromViewport();

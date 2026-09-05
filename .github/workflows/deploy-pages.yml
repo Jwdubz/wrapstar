@@ -41,10 +41,10 @@ jobs:
 
           manifest = json.loads(Path("publish-manifest.json").read_text(encoding="utf-8-sig"))
           release = manifest["mediaRelease"]
-          if release != "media-20260904":
+          if release != "media-web-20260905":
               raise SystemExit("Refusing an unapproved media release.")
           expected = {
-              f"assets/video/{scene}-loop-{layout}.mp4"
+              f"assets/video/{scene}-web-{layout}.mp4"
               for scene in ("apart", "closer", "edge", "finish")
               for layout in ("wide", "tall")
           }
