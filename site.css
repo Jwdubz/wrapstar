@@ -522,3 +522,6 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
 .motion{font-size:.9375rem}
 .motion__txt{font-size:inherit}
 @media (max-width:760px){.motion__txt{font-size:inherit}}
+
+/* pre-send: no one-word last lines in body copy */
+p,li,blockquote,figcaption{text-wrap:pretty}
