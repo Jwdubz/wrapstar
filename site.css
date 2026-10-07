@@ -525,3 +525,9 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
 
 /* pre-send: no one-word last lines in body copy */
 p,li,blockquote,figcaption{text-wrap:pretty}
+
+/* pre-send: desktop hero fits the first screen (headline scales with viewport height so both CTAs stay visible) */
+@media (min-width:761px){
+  .hero__h{font-size:min(9.5rem,14vw,15vh);font-size:min(9.5rem,14vw,15svh)}
+  .hero__copy{padding-bottom:clamp(1.5rem,4vh,4rem)}
+}
