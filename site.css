@@ -517,3 +517,8 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
 .loader__label{text-transform:none;letter-spacing:0;font-size:.95rem}
 .hero__cap{text-transform:none;letter-spacing:0;font-size:.875rem}
 @media (max-width:900px){.hero__cap{font-size:.875rem}}
+
+/* pre-send: readable Pause control on phone */
+.motion{font-size:.9375rem}
+.motion__txt{font-size:inherit}
+@media (max-width:760px){.motion__txt{font-size:inherit}}
