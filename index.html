@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap">
-<link rel="preload" href="film/poster.jpg" as="image">
-<link rel="stylesheet" href="site.css?v=pass53">
+<link rel="preload" href="film/poster.jpg?v=pass54" as="image" media="(min-width: 761px)">
+<link rel="stylesheet" href="site.css?v=pass54">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23090B10'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='14' font-weight='700' fill='%23E9E7E1'%3EW%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -22,16 +22,16 @@
 
 <div class="loader" aria-hidden="true">
   <div class="loader__mark">
-    <img src="img/wrapstar-logo.png?v=pass53" width="2280" height="1266" alt="Wrapstar" decoding="async">
-    <img class="loader__cped" src="img/ceramic-pro-elite.png?v=pass53" width="1361" height="478" alt="Ceramic Pro Las Vegas Elite Dealer" decoding="async">
+    <img src="img/wrapstar-logo.png?v=pass54" width="2280" height="1266" alt="Wrapstar" decoding="async">
+    <img class="loader__cped" src="img/ceramic-pro-elite.png?v=pass54" width="1361" height="478" alt="Ceramic Pro Las Vegas Elite Dealer" decoding="async">
   </div>
   <div class="loader__bar"><i></i></div>
 </div>
 
 <header class="hdr">
   <a class="hdr__mark" href="index.html" aria-label="Wrapstar home">
-    <img src="img/wrapstar-logo.png?v=pass53" width="2280" height="1266" alt="Wrapstar" decoding="async">
-    <img class="hdr__cped" src="img/ceramic-pro-elite.png?v=pass53" width="1361" height="478" alt="Ceramic Pro Las Vegas Elite Dealer" decoding="async">
+    <img src="img/wrapstar-logo.png?v=pass54" width="2280" height="1266" alt="Wrapstar" decoding="async">
+    <img class="hdr__cped" src="img/ceramic-pro-elite.png?v=pass54" width="1361" height="478" alt="Ceramic Pro Las Vegas Elite Dealer" decoding="async">
   </a>
   <nav class="hdr__nav" id="hdr-nav" aria-label="Primary">
     <a href="index.html#work">Work</a>
@@ -40,7 +40,7 @@
     <a href="contact.html#quote">Quote</a>
   </nav>
   <div class="hdr__r">
-    <a class="pill" href="contact.html#quote"><span class="pill__dot"></span>Request a Quote</a>
+    <a class="pill" href="contact.html#quote"><span class="pill__dot"></span>Request A Quote</a>
     <button class="hdr__menu" type="button" aria-expanded="false" aria-controls="hdr-nav" aria-label="Menu"><span aria-hidden="true"></span></button>
     <button class="motion" type="button" aria-pressed="false" aria-label="Pause Motion"><span class="motion__ico" aria-hidden="true"></span><span class="motion__txt">Pause</span></button>
   </div>
@@ -50,10 +50,12 @@
 
 <section class="hero" id="top">
   <div class="hero__media">
-    <video class="film film--hero" id="film-hero" muted loop playsinline autoplay preload="auto" poster="film/poster.jpg"
-      aria-label="Wrapstar floor film: BMW LED bay with Wrapstar logo shirt, Bugatti on the lift, door work, Porsche with Wrapstar mark, hood bay, outdoor finish later. Hard-cut 1080p montage">
-      <source src="film/hero.mp4?v=pass53" type="video/mp4">
+    <video class="film film--hero" id="film-hero" muted loop playsinline autoplay preload="auto" poster="film/poster.jpg?v=pass54"
+      aria-label="Wrapstar floor film: BMW in the LED bay, Porsche with the Wrapstar mark, Bugatti engine bay, Bugatti and Huracán finished outside">
+      <source src="film/hero-sm.mp4?v=pass54" type="video/mp4" media="(max-width: 760px) and (orientation: portrait)">
+      <source src="film/hero.mp4?v=pass54" type="video/mp4">
     </video>
+    <script>if (matchMedia("(max-width: 760px) and (orientation: portrait)").matches) document.getElementById("film-hero").poster = "film/poster-sm.jpg?v=pass54";</script>
   </div>
   <div class="hero__copy">
     <h1 class="hero__h" aria-label="Protect. Enhance. Redefine Your Ride.">
@@ -65,7 +67,7 @@
       <p class="eyebrow eyebrow--on-dark">Las Vegas · Ceramic Pro Elite Dealer</p>
       <p class="hero__sub"><span class="hero__sub-line">Custom Wraps, Ceramic Coating, PPF &amp; Tint.</span><span class="hero__sub-line hero__sub-line--gold">Meticulous Craftmanship For Exceptional Clientele.</span></p>
       <div class="hero__cta">
-        <a class="btn btn--light" href="contact.html#quote">Request a Quote</a>
+        <a class="btn btn--light" href="contact.html#quote">Request A Quote</a>
         <a class="btn btn--ghost" href="tel:+17029438877">Call 702-943-8877</a>
       </div>
     </div>
@@ -239,15 +241,17 @@
 <section class="ask" id="ask" aria-labelledby="ask-h">
   <div class="ask__media">
     <video class="film" muted loop playsinline autoplay preload="metadata" poster="film/poster.jpg" aria-label="Wrapstar shop film looping behind the quote ask">
-      <source src="film/hero.mp4?v=pass53" type="video/mp4">
+      <source src="film/hero-sm.mp4?v=pass54" type="video/mp4" media="(max-width: 760px) and (orientation: portrait)">
+      <source src="film/hero.mp4?v=pass54" type="video/mp4">
     </video>
+    <script>if (matchMedia("(max-width: 760px) and (orientation: portrait)").matches) document.getElementById("film-hero").poster = "film/poster-sm.jpg?v=pass54";</script>
   </div>
   <div class="ask__copy">
     <p class="eyebrow" data-reveal>Next Step</p>
     <h2 class="sec-h sec-h--light" id="ask-h" data-split>Request Your<br>Personalized Quote</h2>
     <p class="ask__lede" data-reveal>We'd love to hear from you. Whether you have questions or need to schedule, we're here for you.</p>
     <div class="ask__cta" data-reveal>
-      <a class="btn btn--light" href="contact.html#quote">Request a Quote</a>
+      <a class="btn btn--light" href="contact.html#quote">Request A Quote</a>
       <a class="btn btn--ghost-light" href="tel:+17029438877">702-943-8877</a>
     </div>
     <address class="ask__addr" data-reveal>
@@ -262,14 +266,14 @@
 
 <footer class="ftr">
   <div class="ftr__row">
-    <a class="ftr__mark" href="index.html" aria-label="Wrapstar home"><img src="img/wrapstar-logo.png?v=pass53" width="2280" height="1266" alt="Wrapstar" decoding="async"></a>
+    <a class="ftr__mark" href="index.html" aria-label="Wrapstar home"><img src="img/wrapstar-logo.png?v=pass54" width="2280" height="1266" alt="Wrapstar" decoding="async"></a>
     <nav class="ftr__nav" aria-label="Footer">
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
     <p class="ftr__note">Ceramic Pro Las Vegas Elite Dealer · Local concept, not live</p>
-    <a class="ftr__top" href="#top">Back to top</a>
+    <a class="ftr__top" href="#top">Back To Top</a>
   </div>
 </footer>
 
@@ -277,6 +281,6 @@
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/SplitText.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="site.js?v=pass53"></script>
+<script src="site.js?v=pass54"></script>
 </body>
 </html>

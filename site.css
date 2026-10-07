@@ -495,3 +495,25 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
   font-family:var(--ui);
   font-weight:500;
 }
+
+/* Pass 54: no tiny tracked caps anywhere; mixed-case labels and CTAs at readable size; 44px footer taps; 16px inputs */
+.eyebrow,.hero__band .eyebrow{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.1rem,1.4vw,1.3rem);letter-spacing:0;text-transform:none;line-height:1.25;opacity:1}
+.mani .eyebrow{color:rgba(31,42,68,.8)}
+.btn{text-transform:none;letter-spacing:0;font-size:1rem;min-height:3rem;padding:.75rem 1.35rem}
+.pill{text-transform:none;letter-spacing:0;font-size:.95rem}
+.motion{text-transform:none;letter-spacing:0;font-size:.875rem}
+.hdr__nav{text-transform:none;letter-spacing:0;font-size:.95rem}
+.work__card figcaption,.rail__item figcaption{text-transform:none;letter-spacing:0;font-size:.9375rem;font-weight:600}
+.svc-note{text-transform:none;letter-spacing:0;font-size:1rem}
+.inline-link{display:inline-flex;align-items:center;min-height:44px}
+.rev cite{text-transform:none;letter-spacing:0;font-size:.9375rem}
+.ftr__top{text-transform:none;letter-spacing:0;font-size:.95rem;min-height:44px}
+.ftr__nav{text-transform:none;letter-spacing:0;font-size:.95rem;flex-wrap:wrap;gap:.25rem 1rem}
+.ftr__nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 .2rem}
+.ftr__note{font-size:.875rem}
+.contact__ig{text-transform:none;letter-spacing:0;font-size:1rem}
+.field__label{text-transform:none;letter-spacing:0;font-size:.95rem}
+.field input,.field select,.field textarea{font-size:16px}
+.loader__label{text-transform:none;letter-spacing:0;font-size:.95rem}
+.hero__cap{text-transform:none;letter-spacing:0;font-size:.875rem}
+@media (max-width:900px){.hero__cap{font-size:.875rem}}
