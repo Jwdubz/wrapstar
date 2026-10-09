@@ -69,6 +69,7 @@
         if (st.animation) on ? st.animation.pause() : st.animation.resume();
       });
     }
+    /* Pause freezes all motion: GSAP + smooth scroll */ if(window.gsap){gsap.globalTimeline[on?'pause':'resume']();}if(typeof lenis!=='undefined'&&lenis){on?lenis.stop():lenis.start();}
   };
   motionBtn && motionBtn.addEventListener('click', () => setPaused(!paused));
 
