@@ -375,10 +375,12 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
   text-rendering:geometricPrecision;
   /* PROTECT. solid fill + ~1px white outline (pass37) */
   text-shadow:
-    -1px  0 0 #000,
-     1px  0 0 #000,
-     0 -1px 0 #000,
-     0  1px 0 #000;
+    -1px  0 0 #fff,
+     1px  0 0 #fff,
+     0 -1px 0 #fff,
+     0  1px 0 #fff,
+     0 0 12px rgba(162,3,116,.35),
+     0 0 24px rgba(162,3,116,.2);
 }
 .hero__line--accent{
   color:#F5C42A;
@@ -387,10 +389,12 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
   text-rendering:geometricPrecision;
   /* ENHANCE. solid gold + ~1px white outline */
   text-shadow:
-    -1px  0 0 #000,
-     1px  0 0 #000,
-     0 -1px 0 #000,
-     0  1px 0 #000;
+    -1px  0 0 #fff,
+     1px  0 0 #fff,
+     0 -1px 0 #fff,
+     0  1px 0 #fff,
+     0 0 12px rgba(245,196,42,.35),
+     0 0 24px rgba(245,196,42,.2);
 }
 .hero__line--teal{
   color:#388cd0;
@@ -399,10 +403,12 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
   text-rendering:geometricPrecision;
   /* REDEFINE. solid teal + ~1px white outline */
   text-shadow:
-    -1px  0 0 #000,
-     1px  0 0 #000,
-     0 -1px 0 #000,
-     0  1px 0 #000;
+    -1px  0 0 #fff,
+     1px  0 0 #fff,
+     0 -1px 0 #fff,
+     0  1px 0 #fff,
+     0 0 12px rgba(56,140,208,.35),
+     0 0 24px rgba(56,140,208,.2);
 }
 .hero__cap{
   color:#1164A6;
