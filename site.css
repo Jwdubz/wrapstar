@@ -532,9 +532,8 @@ p,li,blockquote,figcaption{text-wrap:pretty}
   .hero__copy{padding-bottom:clamp(1.5rem,4vh,4rem)}
 }
 
-/* Raw footage (Oct 8): nothing tints, blurs, saturates or dims the film. Hero band is a solid plate (no see-through blur/tint); headline legibility from text-shadow. */
-.hero__band{background:#0b0d13;-webkit-backdrop-filter:none;backdrop-filter:none;border:1px solid rgba(186,140,255,.36);box-shadow:none}
-.hero__band,.hero__band .eyebrow,.hero__band .hero__sub,.hero__copy .hero__h{text-shadow:0 1px 2px rgba(0,0,0,.6),0 2px 24px rgba(0,0,0,.55)}
+/* Raw footage (Oct 8): nothing tints, blurs, saturates or dims the film. Hero headline legibility from text-shadow. The frosted see-through hero band (backdrop blur/saturate, purple-tinted glass) is a deliberate UI element and was restored exactly as before (Oct 8, Jarrett). */
+.hero__copy .hero__h{text-shadow:0 1px 2px rgba(0,0,0,.6),0 2px 24px rgba(0,0,0,.55)}
 @media (max-width:760px){
   /* phone: the quote film sits as its own full-strength block above the copy instead of a dimmed layer behind it */
   .ask__media{position:relative;inset:auto;height:62vw;opacity:1}
