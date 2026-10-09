@@ -365,7 +365,7 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
   width:fit-content;
   max-width:100%;
   background:transparent;
-  color:#1164A6;
+  color:#a20374;
   padding:0;
   margin:0;
   border-radius:0;
@@ -393,7 +393,7 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
      0  1px 0 #000;
 }
 .hero__line--teal{
-  color:#25C2A4;
+  color:#183959;
   background:transparent;
   -webkit-font-smoothing:antialiased;
   text-rendering:geometricPrecision;
