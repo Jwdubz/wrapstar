@@ -161,7 +161,7 @@ em{font-style:italic;font-family:var(--serif);font-weight:500;color:var(--accent
 /* Footer */
 .ftr{background:var(--dark);color:var(--paper);padding:1.5rem var(--pad)}
 .ftr__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--max);margin:0 auto}
-.ftr__mark{display:inline-flex;align-items:center;min-height:2.75rem;line-height:0}
+.ftr__mark{display:inline-flex;align-items:center;min-height:2.75rem;min-width:2.75rem;line-height:0}
 .ftr__mark img{height:clamp(1.45rem,3.8vw,1.85rem);width:auto;max-width:min(40vw,10rem);object-fit:contain;opacity:.95}
 .ftr__note{margin:0;font-size:.75rem;opacity:.55}
 .ftr__top{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;min-height:2.75rem;display:inline-flex;align-items:center;padding:.5rem .25rem}
