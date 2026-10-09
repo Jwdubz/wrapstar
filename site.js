@@ -357,13 +357,16 @@
   });
 })();
 
-/* REDEFINE. reveal synced to the hero film: hidden on the work shots, shown from the plaza cut, every loop. Paused => shown. */
+/* REDEFINE. reveal synced to the hero film: hidden on the work shots of the FIRST play only; once revealed it stays. Paused => shown. */
 (function(){
   var v=document.getElementById('film-hero'); var line=document.querySelector('.hero__h .hero__line--teal');
   if(!v||!line) return;
+  var revealed=false; /* once the first plaza cut lands, REDEFINE. stays */
   var REVEAL=4.75; /* plaza Bugatti cut at 4.767s in hero.mp4 and hero-sm.mp4 */
   function sync(){
-    var show = v.paused || document.documentElement.classList.contains('is-paused') || v.currentTime>=REVEAL;
+    if(!revealed && !v.paused && v.currentTime>=REVEAL) revealed=true;
+    var show = revealed || v.paused || document.documentElement.classList.contains('is-paused') || v.currentTime>=REVEAL;
+    if(show && !v.paused) revealed = revealed || v.currentTime>=REVEAL;
     line.classList.toggle('is-held', !show);
   }
   function loop(){ sync(); if(v.requestVideoFrameCallback){ v.requestVideoFrameCallback(loop); } else { requestAnimationFrame(loop); } }
