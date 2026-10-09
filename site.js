@@ -362,7 +362,7 @@
   var v=document.getElementById('film-hero'); var line=document.querySelector('.hero__h .hero__line--teal');
   if(!v||!line) return;
   var revealed=false; /* once the first plaza cut lands, REDEFINE. stays */
-  var REVEAL=4.75; /* plaza Bugatti cut at 4.767s in hero.mp4 and hero-sm.mp4 */
+  var REVEAL=5.77; /* 1s after the plaza Bugatti cut (4.767s in hero.mp4 and hero-sm.mp4) */
   function sync(){
     if(!revealed && !v.paused && v.currentTime>=REVEAL) revealed=true;
     var show = revealed || v.paused || document.documentElement.classList.contains('is-paused') || v.currentTime>=REVEAL;
