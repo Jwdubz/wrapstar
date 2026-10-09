@@ -366,7 +366,6 @@
   function sync(){
     if(!revealed && !v.paused && v.currentTime>=REVEAL) revealed=true;
     var show = revealed || v.paused || document.documentElement.classList.contains('is-paused') || v.currentTime>=REVEAL;
-    if(show && !v.paused) revealed = revealed || v.currentTime>=REVEAL;
     line.classList.toggle('is-held', !show);
   }
   function loop(){ sync(); if(v.requestVideoFrameCallback){ v.requestVideoFrameCallback(loop); } else { requestAnimationFrame(loop); } }
