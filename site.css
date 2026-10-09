@@ -365,7 +365,7 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
   width:fit-content;
   max-width:100%;
   background:transparent;
-  color:#a20374;
+  color:#ff1fa8;
   padding:0;
   margin:0;
   border-radius:0;
@@ -379,8 +379,8 @@ html.js-motion [data-split].is-pending .word{display:inline-block}
      1px  0 0 #fff,
      0 -1px 0 #fff,
      0  1px 0 #fff,
-     0 0 12px rgba(162,3,116,.35),
-     0 0 24px rgba(162,3,116,.2);
+     0 0 12px rgba(255,31,168,.35),
+     0 0 24px rgba(255,31,168,.2);
 }
 .hero__line--accent{
   color:#F5C42A;
