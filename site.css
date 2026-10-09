@@ -538,3 +538,7 @@ p,li,blockquote,figcaption{text-wrap:pretty}
   /* phone: the quote film sits as its own full-strength block above the copy instead of a dimmed layer behind it */
   .ask__media{position:relative;inset:auto;height:62vw;opacity:1}
 }
+/* REDEFINE. reveals on the plaza Bugatti cut (synced to the hero film) */
+.hero__line--teal.is-held{opacity:0}
+.hero__line--teal{transition:opacity .35s ease-out}
+html.is-paused .hero__line--teal{opacity:1!important}
