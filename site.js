@@ -63,13 +63,12 @@
     if (txt) txt.textContent = on ? 'Play' : 'Pause';
     films().forEach(v => { try { on ? v.pause() : v.play(); } catch(e){} });
     document.documentElement.classList.toggle('is-paused', on);
-    if (lenis) on ? lenis.stop() : lenis.start();
-    if (window.ScrollTrigger) {
+        if (window.ScrollTrigger) {
       ScrollTrigger.getAll().forEach(st => {
         if (st.animation) on ? st.animation.pause() : st.animation.resume();
       });
     }
-    /* Pause freezes all motion: GSAP + smooth scroll */ if(window.gsap){gsap.globalTimeline[on?'pause':'resume']();}if(typeof lenis!=='undefined'&&lenis){on?lenis.stop():lenis.start();}
+    /* Pause freezes all motion: GSAP + smooth scroll */ if(window.gsap){gsap.globalTimeline[on?'pause':'resume']();}if(typeof lenis!=='undefined'&&lenis){lenis.options.smoothWheel=!on;}
   };
   motionBtn && motionBtn.addEventListener('click', () => setPaused(!paused));
 
