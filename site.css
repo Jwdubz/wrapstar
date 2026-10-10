@@ -543,3 +543,5 @@ p,li,blockquote,figcaption{text-wrap:pretty}
 .hero__line--teal{transition:opacity .35s ease-out}
 html.is-paused .hero__line--teal{opacity:1!important}
 @media (max-width:900px){.hdr .pill{display:inline-flex;font-size:.85rem;padding:.5rem .85rem}}
+/* Oct 10: once the wipe lands, stop clipping the line box so the 1px white outline + color glows render fully (overflow:hidden was boxing the glows) */
+.hero__line[data-hero-wipe].is-shown{overflow:visible}
